@@ -176,7 +176,7 @@ public class KerberosFederationProvider implements UserStorageProvider,
     protected boolean validPassword(String username, String password) {
         if (kerberosConfig.isAllowPasswordAuthentication()) {
             KerberosUsernamePasswordAuthenticator authenticator = factory.createKerberosUsernamePasswordAuthenticator(kerberosConfig);
-            return authenticator.validUser(username, password);
+            return authenticator.validUser(username, password, session);
         } else {
             return false;
         }
